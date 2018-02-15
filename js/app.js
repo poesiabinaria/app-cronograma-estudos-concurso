@@ -14,11 +14,11 @@ $(document).ready(function(){
 		}
 	}
 
-	var string="";
+	// var string="";
 
-	// console.log(string.length);
+	// // console.log(string.length);
 
-	console.log(estaVazio(!string.length));
+	// console.log(estaVazio(!string.length));
 
 	var i = 3;
 
@@ -49,14 +49,20 @@ $(document).ready(function(){
 		i++;
 	});
 
+	var temPesoEdital;
+
 	$("#btn-sim").click(function(){
 		$(".box-calcular-peso-edital").hide();
 		$(".box-coletar-peso-edital").fadeIn();
+
+		temPesoEdital = true;
 	})
 
 	$("#btn-nao").click(function(){
 		$(".box-coletar-peso-edital").hide();
 		$(".box-calcular-peso-edital").fadeIn();
+
+		temPesoEdital = false;
 	})
 
 	// Fim
@@ -82,10 +88,7 @@ $(document).ready(function(){
 
 	$("#btn-concl-etapa1").one("click", function(){ // Executa 
 
-		
-		
 		$(".individual-input_sel-discipl").each(function(){ 
-
 			var disciplinas = {};
 			var nomeDisciplina = $(this).find(':input').val();
 			var tipoDisciplina = $(this).find('select').val();
@@ -99,7 +102,7 @@ $(document).ready(function(){
 			// 	haElementoVazio = true;
 			// }
 
-			console.log(disciplinas)
+			// console.log(disciplinas)
 
 			// console.log(!($(this).find(':input').val()).length);
 
@@ -124,27 +127,48 @@ $(document).ready(function(){
 
 		listaTodasDisciplinas = listaDisciplinasBasicas.concat(listaDisciplinasEspec);
 
+		// console.log(listaTodasDisciplinas);
+
+		console.log("Botao sim: " + temPesoEdital)
+
+		if (temPesoEdital){
+			var pesoEditalBasicas = parseFloat($("#peso-edital-basicas").val());
+			var pesoEditalEspec = parseFloat($("#peso-edital-espec").val());
+			
+			console.log(pesoEditalBasicas)
+
+			$(listaTodasDisciplinas).each(function(index, value){
+				if (this.tipo == "Básica"){
+					this.pesoEdital = pesoEditalBasicas;
+				} else if (this.tipo == "Específica"){
+					this.pesoEdital = pesoEditalEspec;
+				}
+			});
+
+		} else{
+			var qtdDisciplinasBasicas = listaDisciplinasBasicas.length;
+			var qtdDisciplinasEspec = listaDisciplinasEspec.length;
+
+			var qtdQuestBasicas = parseInt($("#qtd-quest-basicas").val());
+			var qtdQuestEspec = parseInt($("#qtd-quest-espec").val());
+			var qtdQuestTotal = (qtdQuestBasicas + qtdQuestEspec);
+			
+			var pesoGeralBasicas = (qtdQuestBasicas/qtdQuestTotal);
+			var pesoGeralEspec = (qtdQuestEspec/qtdQuestTotal);
+
+			pesoIndivBasicas = (pesoGeralBasicas/qtdDisciplinasBasicas);
+			pesoIndivEspec = (pesoGeralEspec/qtdDisciplinasEspec);
+
+			$(listaTodasDisciplinas).each(function(index, value){
+				if (this.tipo == "Básica"){
+					this.pesoEdital = pesoIndivBasicas;
+				} else if (this.tipo == "Específica"){
+					this.pesoEdital = pesoIndivEspec;
+				}
+			});
+		}
+
 		console.log(listaTodasDisciplinas);
-
-		var qtdDisciplinasBasicas = listaDisciplinasBasicas.length;
-		var qtdDisciplinasEspec = listaDisciplinasEspec.length;
-
-		var qtdQuestBasicas = parseInt($("#qtd-quest-basicas").val());
-		var qtdQuestEspec = parseInt($("#qtd-quest-espec").val());
-		var qtdQuestTotal = (qtdQuestBasicas + qtdQuestEspec);
-
-		console.log(qtdDisciplinasBasicas);
-		console.log(qtdDisciplinasEspec);
-
-		
-		var pesoGeralBasicas = (qtdQuestBasicas/qtdQuestTotal);
-		var pesoGeralEspec = (qtdQuestEspec/qtdQuestTotal);
-
-		pesoIndivBasicas = (pesoGeralBasicas/qtdDisciplinasBasicas);
-		pesoIndivEspec = (pesoGeralEspec/qtdDisciplinasEspec);
-
-		console.log(pesoIndivBasicas);
-		console.log(pesoIndivEspec);
 
 
 		$(".resultado-pesos").html("Peso básicas: " + pesoIndivBasicas + "<br>" +
@@ -162,17 +186,13 @@ $(document).ready(function(){
 			  "<option value='2.5'>2,5</option>" +
 			  "<option value='3'>3 - Alta</option>" +
 			"</select>";
-
-		
 		
 		$.each(listaTodasDisciplinas, function(index, valor){
-			$(".questionamento-dificuldade").append("<p>" + listaTodasDisciplinas[index].nomeDisciplina + ": " + 
+			$(".questionamento-dificuldade").append("<p>" + this.nomeDisciplina + ": " + 
 				selecaoDificuldade + "</p>"
-				);
-
-		
-				
-	});
+				);	
+	
+	}); // FIM ETAPA 1
 		
 
 		// ETAPA 2 — PESO PESSOAL
@@ -186,6 +206,8 @@ $(document).ready(function(){
 				
 			});
 
+			console.log(listaTodasDisciplinas);
+
 
 
 
@@ -196,22 +218,10 @@ $(document).ready(function(){
 			$.each(listaTodasDisciplinas, function(index, valor){
 				var pesoTres = 0;
 
+				this.pesoTres = (this.pesoEdital * this.pesoPessoal);
 
-				if (listaTodasDisciplinas[index].tipo == "Básica"){
-					pesoTres = listaTodasDisciplinas[index].
-					pesoPessoal * pesoIndivBasicas;
+				somaTotalPesoTres += pesoTres;
 
-					listaTodasDisciplinas[index].pesoFinal = pesoTres;
-
-					somaTotalPesoTres += pesoTres;
-				} else {
-					pesoTres = listaTodasDisciplinas[index].
-					pesoPessoal * pesoIndivEspec;
-
-					listaTodasDisciplinas[index].pesoFinal = pesoTres;
-
-					somaTotalPesoTres += pesoTres;
-				}
 			});
 
 			somaTotalPesoTres = (somaTotalPesoTres * 100);
@@ -236,7 +246,7 @@ $(document).ready(function(){
 
 				
 
-				console.log(listaTodasDisciplinas);
+				// console.log(listaTodasDisciplinas);
 
 				$.each(listaTodasDisciplinas, function(index, valor){
 
