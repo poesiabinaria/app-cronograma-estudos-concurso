@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel = "stylesheet" href = "css/style.css">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<title>Compartimento de Compromissos</title>
+</head>
+<body>
+	<header>
+		<!-- <button id="btn-sobre-calculo">Como é feito o cálculo?</button> -->
+		<div class="cbh-conteudo-principal">
+			<div class="texto-cabecalho">
+				<h1> Quadro de Horário Inteligente </h1>
+				<h4 id="subtitulo-cabecalho">um aplicativo que te informa a quantidade de seções semanais para cada disciplina,<br> baseando-se na importância e conhecimento pessoal de cada uma delas e no seu tempo disponível.</h4>
+			</div>
+			<img id="logo" src="img/logo-book.png">
+		</div>
+	</header>
+
+
+	<main role="main">
+
+		<div class="conteudo-etapa1">
+
+			<!-- Início do título e subtítulo da etapa 1 -->
+			<div class="titulo-sub-etapa">
+				<h2>1ª Etapa - Pesos do Edital</h2>
+				<p>Nessa primeira etapa, serão coletados o nome, tipo e peso oficial de todas as disciplinas.</p>
+			</div>
+			<!-- Fim do título e subtítulo da etapa 1 -->
+
+			<!-- Início do conteúdo secundário da etapa 1 -->
+			<div id="conteudo-secundario-etapa1" class="conteudo-secundario-etapa">
+				<div class="interacao">
+					<p class="msg-interativa">Digite o nome de cada disciplina e selecione o seu tipo (entre básica e específica):</p>
+
+					<div class="todos-inputs-disciplinas">
+						<div class="individual-input_sel-discipl">
+							<input id="input-1" class="input-disciplina" placeholder="Ex: Português"
+							><select class='tag-selecao-tipo' required>
+							  <option value='' disabled selected>Tipo</option> 
+							  <option value='Basica'>Básica</option>
+							  <option value='Espec'>Específica</option>
+							</select>
+						</div>
+
+						<div class="individual-input_sel-discipl">
+							<input id="input-2" class="input-disciplina" placeholder="Ex: Direito Civil"
+							><select class='tag-selecao-tipo' required>
+							  <option value='' disabled selected>Tipo</option> 
+							  <option value='Basica'>Básica</option>
+							  <option value='Espec'>Específica</option>
+							</select>
+						</div>
+
+						<button class="btn-add-disciplina">Nova Disciplina</button>
+						<button id="btn-remover" class="btn-rem-disciplina">Remover Última</button>
+					</div>
+				</div>					
+			
+
+				<div class="edital-informa-peso">
+					<div class="interacao">
+						<p class="msg-interativa">O edital do seu concurso informa o peso das disciplinas?
+							<button id="btn-sim" class="botao-de-reposta">Sim</button>
+							<button id="btn-nao" class="botao-de-reposta">Não</button>
+						</p>
+						
+						<div class="box-coletar-peso-edital"> 
+							<p>> Qual o peso das disciplinas básicas?</p>
+							<input id="qtd-quest-basicas" class="input-pequeno" placeholder="Ex: 1"> 
+							<p>> E das específicas?</p> 
+							<input id="qtd-quest-espec" class="input-pequeno" placeholder="Ex: 1,8"> <br> 
+							<div class="resultado-pesos"></div>
+						</div>
+						
+						<div class="box-calcular-peso-edital"> 
+							<p class="observacao">Mesmo que o edital não tenha informado os pesos das disciplinas, é possível conhecê-los através da relação entre o total das questões básicas e das específicas. </p>
+							<p>> Qual a quantidade de questões básicas na prova?</p>
+							<input id="qtd-quest-basicas" class="input-pequeno" placeholder="Ex: 50">
+							<p>> E a quantidade de questões específicas?</p> 
+							<input id="qtd-quest-espec" class="input-pequeno" placeholder="Ex: 70"> <br>
+							<div class="resultado-pesos"></div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- Fim do conteúdo secundário da etapa 1 -->
+			
+
+			<div class="btn-conclusao-etapa">
+				<a href="#etapa2"><button id="btn-concl-etapa1">Próxima Etapa ►►</button></a>
+			</div>
+
+		</div>	
+			
+
+		
+		<div class="conteudo-etapa2" id="etapa2">
+			<div class="titulo-sub-etapa">
+				<h2>2ª Etapa - Pesos Pessoais</h2>
+				<p>Aqui, será levada em conta a sua relação individual com todas as disciplinas informadas acima.</p>
+			</div>
+			
+			<div id="conteudo-secundario-etapa2" class="conteudo-secundario-etapa">
+						
+				<div class="interacao">
+					<p class="msg-interativa">Selecione abaixo o seu nível de dificuldade para cada disciplina:</p>
+					<div class="questionamento-dificuldade"></div>
+				</div>
+
+				<div class="btn-conclusao-etapa">
+					<a href="#etapa3"><button id="btn-concl-etapa2">Próxima Etapa ►►</button></a>
+				</div>
+
+			</div>
+		</div>
+
+		
+
+
+
+
+		<div class="conteudo-etapa3" id="etapa3">
+			<div class="titulo-sub-etapa">
+				<h2>3ª Etapa - Tempo de Estudos</h2>
+				<p>Nessa última etapa, informações sobre o seu tempo serão coletadas para o cálculo final.</p>
+			</div>
+			<div id="conteudo-secundario-etapa3" class="conteudo-secundario-etapa">
+				<div class="interacao">
+					<p class="msg-interativa">Informe abaixo números sobre o seu tempo:</p>
+					<p>> Quantas horas semanais de estudos você tem disponível?</p>
+					<input id="qtd-horas-semanais" class="input-pequeno" placeholder="Ex: 30">
+					<p>> Quanto tempo (em minutos) você gostaria de alocar para
+					cada seção de estudo?</p>
+					<input id="qtd-minutos-secao" class="input-pequeno" placeholder="Ex: 30">
+				</div>
+
+				<div class="btn-conclusao-etapa">
+					<button id="btn-ir-etapa3">Mostrar Resultado!</button>
+				</div>
+			
+			</div>
+
+			
+			
+				
+			
+			
+		</div>
+
+		<div class="conteudo-resultado">
+			<div class="titulo-sub-etapa">
+				<h2>O Resultado</h2>
+				<p>Um quadro com um resumo completo incluindo, claro, a quantidade de seções calculada com base na sua individualidade.</p>
+			</div>
+		</div>
+	</main>
+
+
+
+	
+
+
+
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+.individual-input_sel-discipl{
+	display: block;
+}
+
+/*.lista-questionamentos{
+	display: none;
+}*/
+
+
+body{
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+}
+
+input{
+	width: 280px;
+	padding: 6px;
+	margin: 0 10px 10px 0;
+}
+
+.input-pequeno{
+	width: 70px;
+	margin-left: 15px;
+}
+
+select{ padding: 6px 0; }
+
+button{
+	font-family: 'Arial', sans-serif;
+	font-size: 12px;
+	background-color: #00a4d3;
+	color: white;
+	font-weight: bold;
+	padding: 8px 14px;
+	margin: 10px 6px 0 0;
+	border-radius: 2px;
+	border: 1px solid black;
+	transition: .15s linear;
+	cursor: pointer;
+}
+
+button:hover{ background-color: #32b6db; }
+
+#btn-remover, #btn-nao{ background-color: #9a72d7 }
+#btn-remover:hover, #btn-nao:hover{
+	background-color: #a480db;
+}
+
+
+
+select:required:invalid { color: gray; }
+option[value=""][disabled] { display: none; }
+option { color: black; }
+
+header{
+	background: #02AAB0;
+	background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);
+	background: linear-gradient(to right, #00CDAC, #02AAB0);
+	box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+	padding: 30px 0;
+	margin-bottom: 80px;
+}
+
+.cbh-conteudo-principal{ text-align: right; }
+
+h1{
+	font-size: 28px;
+	color: white;
+	margin: 0 0 10px 0;
+	text-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+	
+}
+
+h2{
+	/*font-size: 26px;*/
+	font-weight: normal;
+	margin-top: 50px;
+}
+
+h4{
+	color:white;
+	font-size: 14px;
+	font-weight: normal;
+	/*font-style: italic;*/
+	margin: 0;
+	
+}
+
+.texto-cabecalho{
+	display: inline-block;
+	text-align: right;
+}
+
+#logo{ margin: 0 40px; 
+	-webkit-filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3));
+	 filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3)); 
+}
+
+/*#btn-sobre-calculo{
+	display: inline-block;
+}*/
+
+
+
+main{
+	padding: 0 11%;
+}
+
+.titulo-sub-etapa{
+	text-align: center;
+	margin: 40px 0 50px 0;
+	border-top: 1px solid #d6d6d6;
+}
+.conteudo-etapa1 .titulo-sub-etapa:first-child{
+	border-top: none;
+}
+
+
+.titulo-sub-etapa p{
+	color: #aaaaaa;
+	font-size: 15px;
+	font-style: italic;
+	margin: 0;
+}
+
+.titulo-sub-etapa h2{ margin-bottom: 10px; }
+
+
+.questionamento-dificuldade p{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.questionamento-dificuldade p:before{ content: "• "; }
+
+.lista-questionamentos select{ margin-left: 30px; }
+
+.msg-interativa{
+	padding: 10px 15px;
+	margin-left: -20px;
+	border-left: 4px solid #02aab0;
+}
+
+
+.box-coletar-peso-edital, 
+.box-calcular-peso-edital,
+.conteudo-etapa2-secundario{
+	display: none;
+}
+
+.btn-conclusao-etapa {
+	text-align: right;
+	margin-top: 70px;
+}
+
+.btn-conclusao-etapa button{ background-color: #00CDAC; }
+.btn-conclusao-etapa button:hover{ background-color: #02AAB0; }
+
+
+
+
+.botao-de-reposta{
+	margin-top: 0;
+	padding: 4px 10px;
+}
+
+.botao-de-reposta:first-child{
+	margin-left: 10px;
+}
+
+
+
+/*.botao-de-reposta:hover{
+	color: white;
+
+	
+}
+
+.botao-de-reposta:focus{
+	background-color: #00a4d3;
+	
+}*/
+
+.interacao{ margin-bottom: 45px; }
+
+.observacao{
+	font-size: 14px;
+	font-style: italic;
+	color: grey;
+	padding-bottom: 10px;
+}
