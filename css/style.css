@@ -144,7 +144,8 @@ main{
 
 .box-coletar-peso-edital, 
 .box-calcular-peso-edital,
-.conteudo-etapa2-secundario{
+.conteudo-etapa2-secundario,
+#btn-concl-etapa1{
 	display: none;
 }
 
