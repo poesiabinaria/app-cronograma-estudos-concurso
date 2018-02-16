@@ -46,7 +46,7 @@ button:hover{ background-color: #32b6db; }
 	background-color: #a480db;
 }
 
-
+a{ color: white; font-weight: bold;}
 
 select:required:invalid { color: gray; }
 option[value=""][disabled] { display: none; }
@@ -190,3 +190,120 @@ main{
 	color: grey;
 	padding-bottom: 10px;
 }
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    /*margin: 0 auto;*/
+    
+}
+
+
+
+td, th {
+    
+    text-align: center;
+    padding: 14px;
+
+}
+th{
+	background-color:  #00a4d3;
+	color: white;
+	/*text-align: center;*/
+	/*padding: 16px;*/
+	border:1px solid white;
+
+}
+
+tr:nth-child(odd) {
+    background-color: #e5f6f7;
+}
+
+td:first-child{
+	/*text-align: left;*/
+	/*font-weight: bold;
+	font-style: italic;*/
+	/*background-color: #02AAB0;
+	color: white;
+	border:1px solid white;*/
+}
+
+/*th:last-child{
+	text-transform: uppercase;
+}
+*/
+#tbl-num-compart{
+	background-color: #9a72d7;
+}
+
+/*Tabela 2*/
+
+#tabela-detalhes th, #tabela-detalhes td{
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid #dddddd;
+	color: black;
+}
+
+#tabela-detalhes{
+	width: 48%;
+
+	
+}
+
+#tabela-detalhes th{
+	text-align: right;
+}
+
+#tabela-detalhes tr:nth-child(odd) {
+    background-color: #e5f6f7;
+}
+
+#tabela-detalhes td, #tabela-detalhes th{
+	padding: 8px;
+
+}
+
+/*Fim tabela 2*/
+
+/*#tbl-tipo{
+	color: red;
+	padding: 30px;
+}
+*/
+
+.detalhes-calculo{
+	margin: 50px 0;
+}
+
+/*#msg-final{
+	clear: both;
+}*/
+
+
+
+
+#legenda-tabela{
+	font-size: 12px;
+	font-style: italic;
+}
+
+
+
+
+
+footer{
+	background: #02AAB0;
+		background: -webkit-linear-gradient(to left, #00CDAC, #02AAB0);
+		background: linear-gradient(to left, #00CDAC, #02AAB0);
+	margin-top: 120px;
+	padding: 8px;
+	color: white;
+	font-size: 12px;
+	text-align: center;
+	/*clear: both;*/
+}
+

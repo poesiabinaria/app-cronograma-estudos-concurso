@@ -19,6 +19,22 @@
 		</div>
 	</header>
 
+<!-- 
+	<div class="div-teste">a</div>
+
+	<table id="tabela-teste">
+	  <tr>
+	    <th>Company</th>
+	    <th>Contact</th>
+	    <th>Country</th>
+	  </tr>
+	  <tr>
+	    <td>Alfreds Futterkiste</td>
+	    <td>Maria Anders</td>
+	    <td>Germany</td>
+	  </tr>
+	</table> -->
+
 
 	<main role="main">
 
@@ -242,7 +258,7 @@
 				</div>
 
 				<div class="btn-conclusao-etapa">
-					<button id="btn-ir-etapa3">Mostrar Resultado!</button>
+					<button id="btn-mostrar-resultado">Mostrar Resultado!</button>
 				</div>
 			
 			</div>
@@ -259,6 +275,134 @@
 				<h2>O Resultado</h2>
 				<p>Um quadro com um resumo completo incluindo, claro, a quantidade de seções calculada com base na sua individualidade.</p>
 			</div>
+			
+			<table id="tabela-principal">
+			  <tr>
+			    <th>Disciplina</th>
+			    <th id="tbl-tipo">Tipo</th>
+			    <th>Peso Edital</th>
+			    <th>Peso Pessoal</th>
+			    <th>Peso Final</th>
+			    <th id="tbl-num-compart">Nº Seções Semanais</th>
+			  </tr>
+			  <!-- <tr>
+			    <td>Português</td>
+			    <td>Básica</td>
+			    <td>3</td>
+			    <td>2</td>
+			    <td>3</td>
+			    <td>2</td>
+			  </tr>
+			  <tr>
+			    <td>Raciocínio Lógico</td>
+			    <td>Básica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			 	
+			  </tr>
+			  <tr>
+			    <td>Inglês</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+			  <tr>
+			    <td>Direito Constitucional</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+			  <tr>
+			    <td>Sistema Financeiro</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+			  <tr>
+			    <td>Economia</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+			  <tr>
+			    <td>Teoria das organizações</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+			  <tr>
+			    <td>Estratégia, Planejamento e Projetos</td>
+			    <td>Específica</td>
+			    <td>3</td>
+			    <td>6</td>
+			    <td>3</td>
+			    <td>2</td>
+			    
+			  </tr>
+ -->
+			</table>
+
+			
+
+			<div class="detalhes-calculo">
+
+				<p>Detalhes sobre o cálculo:</p>
+
+				<table id="tabela-detalhes" >
+				  <tr>
+				   <th>Qtd. Horas Semanais:</th>
+				   <td id="td-horas-semanais"></td>
+				  </tr>
+				  <tr>
+				  	<th>Duração Seção (em minutos):</th>
+				  	<td id="td-duracao-secao"></td>
+				  </tr>
+				  <tr>
+				  	<th>Qtd. Total Compartimentos:</th>
+				   <td id="td-total-compart"></td>
+				  </tr>
+				  <tr>
+				   <th>Soma Total Peso Final:</th>
+				   <td id="td-soma-peso-final"></td>
+				  </tr>
+				  <tr>
+				   <th>Relação Peso Final &amp; Compartimento:</th>
+				   <td id="td-relacao-peso-compart"></td>
+				  </tr> 
+				</table>
+				
+				<p id="legenda-tabela">
+				# PesoFinal = (PesoEdital x PesoPessoal)<br>
+				# SomaTotalPesoFinal = (PesoFinal1 + PesoFinal2 + PesoFinal3 + ...)<br>
+				# Qtd.TotalCompartimentos = (((60)/DuraçãoSeção)/Qtd.HorasSemanais)<br>
+				# RelaçãoPesoFinal&amp;Compartimento = (Qtd.TotalCompartimentos/SomaTotalPesoFinal)<br>
+				# NºSeçõesSemanais = (PesoFinal x RelaçãoPesoFinal&amp;Compartimento)<br>
+				</p>
+			
+			</div>
+
+			
+
+
+			<div id="msg-final" class="msg-interativa">Pronto! Com essa tabela, você pode montar seu quadro de horário de uma maneira mais inteligente, levando em conta a sua individualidade como pessoa e estudante.<br><br> Um exemplo: A cada semana, você deve estudar 2 seções (ou compartimentos) de Português. 
+			</div>
 		</div>
 	</main>
 
@@ -267,7 +411,10 @@
 	
 
 
+	<footer>
+		Lógica de cálculo por <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank"> Fernando Mesquita</a> • Desenvolvido com ❤ por <a href="https://www.facebook.com/gabriel.mendes.web" target="_blank"> Gabriel</a>
 
+	</footer>
 
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>

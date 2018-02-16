@@ -36,6 +36,44 @@ $(document).ready(function(){
 		return valido;
 	}
 
+	// var objTeste = {
+	// 	nome: "disciplina",
+	// 	tipo: "tipo",
+	// 	pesoedital: "pesoedital",
+	// 	pesopessoal: "pesopessoal",
+	// 	pesofinal: "pesofinal",
+	// 	secoes: "secoes"
+	// }
+
+	// var listaTeste = [objTeste, objTeste]
+
+	// console.log(listaTeste)
+
+
+	// $("#btn-teste").click(function(){
+	// })
+
+	// var tabelaPrincipal = $("#tabela-teste");
+
+	// $(listaTeste).each(function(index, valor){
+		
+	// 	var tr = $("<tr></tr>").appendTo(tabelaPrincipal);
+
+	// 	$("<td></td>").text(this.nome).appendTo(tr);
+	// 	$("<td></td>").text("Text222333.").appendTo(tr);
+	// 	$("<td></td>").text("4").appendTo(tr);
+
+	// 	console.log("loop")
+	// })
+
+	
+
+
+
+
+
+
+
 
 	
 	var i = 3;
@@ -105,28 +143,28 @@ $(document).ready(function(){
 
 
 
-	$("#btn-teste").click(function(){
-		console.log("coletar: " + boxColetarPesoEscolhido)
+	// $("#btn-teste").click(function(){
+	// 	console.log("coletar: " + boxColetarPesoEscolhido)
 
-		var inputESelectValidos = validarInputESelect(".individual-input_sel-discipl");
+	// 	var inputESelectValidos = validarInputESelect(".individual-input_sel-discipl");
 
-		if(boxColetarPesoEscolhido){
-			inputsNumericosValidos = 
-			validarInputNumerico(".box-coletar-peso-edital .input-numerico")
-		} else { 
-			inputsNumericosValidos = 
-			validarInputNumerico(".box-calcular-peso-edital .input-numerico") 
-		}
+	// 	if(boxColetarPesoEscolhido){
+	// 		inputsNumericosValidos = 
+	// 		validarInputNumerico(".box-coletar-peso-edital .input-numerico")
+	// 	} else { 
+	// 		inputsNumericosValidos = 
+	// 		validarInputNumerico(".box-calcular-peso-edital .input-numerico") 
+	// 	}
 
-		console.log("input numero validos: " + inputsNumericosValidos)
-		console.log("input e select validos: " + inputESelectValidos)
+	// 	console.log("input numero validos: " + inputsNumericosValidos)
+	// 	console.log("input e select validos: " + inputESelectValidos)
 
-		if(inputESelectValidos && inputsNumericosValidos){ // Dados válidos. Prossiga...
-			console.log("Tudo válido!")
-		}else{
-			console.log("Há algo inválido") // Dados inválidos. Revise.
-		}
-	})
+	// 	if(inputESelectValidos && inputsNumericosValidos){ // Dados válidos. Prossiga...
+	// 		console.log("Tudo válido!")
+	// 	}else{
+	// 		console.log("Há algo inválido") // Dados inválidos. Revise.
+	// 	}
+	// })
 	
 	
 	
@@ -262,7 +300,7 @@ $(document).ready(function(){
 
 	// ETAPA 3 — MONTAGEM DO QUADRO
 
-	$("#btn-ir-etapa3").click(function(){
+	$("#btn-mostrar-resultado").click(function(){
 		var qtdHorasSemanais = parseFloat($("#qtd-horas-semanais").val())
 		var qtdMinutosSecao = parseFloat($("#qtd-minutos-secao").val())
 		
@@ -285,7 +323,61 @@ $(document).ready(function(){
 		})
 
 		console.log(listaTodasDisciplinas);
+	
+
+		// INÍCIO DO RESULTADO FINAL
+
+
+		var tabelaPrincipal = $("#tabela-principal");
+
+		$(listaTodasDisciplinas).each(function(index, valor){
+			
+			var tr = $("<tr></tr>").appendTo(tabelaPrincipal);
+
+			$("<td></td>").text(this.nomeDisciplina).appendTo(tr);
+			$("<td></td>").text(this.tipo).appendTo(tr);
+			$("<td></td>").text(((this.pesoEdital)*100).toFixed(1)).appendTo(tr);
+			$("<td></td>").text(this.pesoPessoal).appendTo(tr);
+			$("<td></td>").text(((this.pesoFinal)*100).toFixed(1)).appendTo(tr);
+			$("<td></td>").text(Math.round((this.numCompartSemanal)*100)).appendTo(tr);
+
+			console.log("loop")
+		})
+
+
+		$("#td-horas-semanais").append(qtdHorasSemanais);
+		$("#td-duracao-secao").append(qtdMinutosSecao);
+		$("#td-total-compart").append(qtdCompartimento);
+		$("#td-soma-peso-final").append(Math.round(somaTotalPesoTres));
+		$("#td-relacao-peso-compart").append(equivPesoeCompart.toPrecision(1));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}) // FIM ETAPA 3
+
+
+	
+
+
+
+
+
+
+
 
 
 
