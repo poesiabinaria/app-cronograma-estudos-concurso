@@ -2,8 +2,9 @@
 <html>
 <head>
 	<meta charset = "UTF-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel = "stylesheet" href = "css/style.css">
+	<link rel = "stylesheet" href = "css/media-queries.css">
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<title>Compartimento de Compromissos</title>
 </head>
@@ -11,29 +12,15 @@
 	<header>
 		<!-- <button id="btn-sobre-calculo">Como é feito o cálculo?</button> -->
 		<div class="cbh-conteudo-principal">
-			<div class="texto-cabecalho">
-				<h1> Quadro de Horário Inteligente </h1>
-				<h4 id="subtitulo-cabecalho">um aplicativo que te informa a quantidade de seções semanais para cada disciplina,<br> baseando-se na importância e conhecimento pessoal de cada uma delas e no seu tempo disponível.</h4>
-			</div>
 			<img id="logo" src="img/logo-book.png">
+			<div class="texto-cabecalho">
+				<h1> Cronograma de Estudos Inteligente <span id="versao"> (versão concurso)</span> </h1>
+				<h2 id="subtitulo-cabecalho">Uma ferramenta que te informa o número de sessões semanais que você deve alocar para cada disciplina, baseando-se no peso perante o edital, no seu conhecimento pessoal em cada uma delas e no seu tempo disponível.</h2>
+				<h2 id="creditos-cabecalho">Cálculos baseados <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank">neste</a> artigo do incrível <a href="http://blogdofernandomesquita.com.br/quem-e-voce" target="_blank">Fernando Mesquita!</a></h2>
+			</div>
+			
 		</div>
 	</header>
-
-<!-- 
-	<div class="div-teste">a</div>
-
-	<table id="tabela-teste">
-	  <tr>
-	    <th>Company</th>
-	    <th>Contact</th>
-	    <th>Country</th>
-	  </tr>
-	  <tr>
-	    <td>Alfreds Futterkiste</td>
-	    <td>Maria Anders</td>
-	    <td>Germany</td>
-	  </tr>
-	</table> -->
 
 
 	<main role="main">
@@ -42,7 +29,7 @@
 			
 			<!-- Início do título e subtítulo da etapa 1 -->
 			<div class="titulo-sub-etapa">
-				<h2>1ª Etapa - Pesos do Edital</h2>
+				<h4>1ª Etapa - Pesos do Edital</h4>
 				<p>Nessa primeira etapa, serão coletados o nome, tipo e peso oficial de todas as disciplinas.</p>
 			</div>
 			<!-- Fim do título e subtítulo da etapa 1 -->
@@ -53,8 +40,8 @@
 					<p class="msg-interativa">Digite o nome de cada disciplina e selecione o seu tipo (entre básica e específica):</p>
 
 					<div class="todos-inputs-disciplinas">
-						<div class="individual-input_sel-discipl">
-							<input id="input-1" class="input-disciplina" placeholder="Ex: Português"
+						<div id="input-select-1" class="individual-input_sel-discipl">
+							<input class="input-disciplina" placeholder="Ex: Português"
 							><select class='tag-selecao-tipo' required>
 							  <option value='' disabled>Tipo</option> 
 							  <option value='Basica' selected>Básica</option>
@@ -62,8 +49,8 @@
 							</select>
 						</div>
 
-						<div class="individual-input_sel-discipl">
-							<input id="input-2" class="input-disciplina" placeholder="Ex: Direito Civil"
+						<div id="input-select-2" class="individual-input_sel-discipl">
+							<input class="input-disciplina" placeholder="Ex: Direito Civil"
 							><select class='tag-selecao-tipo' required>
 							  <option value='' disabled>Tipo</option> 
 							  <option value='Basica' selected>Básica</option>
@@ -71,9 +58,9 @@
 							</select>
 						</div>
 
-						<!-- apagar depois -->
+						
 
-						<div class="individual-input_sel-discipl">
+						<!-- <div class="individual-input_sel-discipl">
 							<input id="input-2" class="input-disciplina" placeholder="Ex: Direito Civil"
 							><select class='tag-selecao-tipo' required>
 							  <option value='' disabled>Tipo</option> 
@@ -161,7 +148,7 @@
 							  <option value='Basica'>Básica</option>
 							  <option value='Espec' selected>Específica</option>
 							</select>
-						</div>
+						</div> -->
 
 						<!-- fim -->
 
@@ -173,17 +160,25 @@
 
 
 					</div>
-					<button class="btn-add-disciplina">(+) Nova Disciplina</button>
-					<button id="btn-remover" class="btn-rem-disciplina">(x) Remover Última</button>
+					<div id="botoes-add-rem">
+						<button id="btn-add-disciplina">(+) Nova Disciplina</button>
+						<button id="btn-remover" class="btn-rem-disciplina">(x) Remover Última</button>
+					</div>
+					
 				</div>					
 			
 
 				<div class="edital-informa-peso">
 					<div class="interacao">
-						<p class="msg-interativa">O edital do seu concurso informa o peso das disciplinas?
-							<button id="btn-sim" class="botao-de-reposta">Sim</button>
-							<button id="btn-nao" class="botao-de-reposta">Não</button>
+						<p class="msg-interativa">
+							O edital do seu concurso informa o peso das disciplinas?
+						<span class="botoes-sim-nao">
+							<button id="btn-sim">Sim</button>
+							<button id="btn-nao">Não</button>
+						</span>
 						</p>
+						
+						
 						
 						<div class="box-coletar-peso-edital"> 
 							<p>> Qual o peso das disciplinas básicas?</p>
@@ -194,10 +189,10 @@
 						</div>
 						
 						<div class="box-calcular-peso-edital"> 
-							<p class="observacao">Mesmo que o edital não tenha informado os pesos das disciplinas, é possível conhecê-los através da relação entre o total das questões básicas e das específicas. </p>
-							<p>> Qual a quantidade de questões básicas na prova?</p>
+							<p class="observacao">Embora o edital não tenha informado os pesos das disciplinas, é possível conhecê-los através da relação entre o total das questões básicas e das específicas. </p>
+							<p>> Qual a quantidade total de questões básicas na prova?</p>
 							<input id="qtd-quest-basicas" class="input-pequeno input-numerico" placeholder="Ex: 50">
-							<p>> E a quantidade de questões específicas?</p> 
+							<p>> E a quantidade total de questões específicas?</p> 
 							<input id="qtd-quest-espec" class="input-pequeno input-numerico" placeholder="Ex: 70"> <br>
 							<div class="resultado-pesos"></div>
 						</div>
@@ -219,7 +214,7 @@
 		
 		<div class="conteudo-etapa2" id="etapa2">
 			<div class="titulo-sub-etapa">
-				<h2>2ª Etapa - Pesos Pessoais</h2>
+				<h4>2ª Etapa - Pesos Pessoais</h4>
 				<p>Aqui, será levada em conta a sua relação individual com todas as disciplinas informadas acima.</p>
 			</div>
 			
@@ -244,16 +239,16 @@
 
 		<div class="conteudo-etapa3" id="etapa3">
 			<div class="titulo-sub-etapa">
-				<h2>3ª Etapa - Tempo de Estudos</h2>
-				<p>Nessa última etapa, informações sobre o seu tempo serão coletadas para o cálculo final.</p>
+				<h4>3ª Etapa - Tempo de Estudos</h4>
+				<p>Nessa última etapa, o seu tempo será utilizado para o cálculo final da distribuição das sessões de estudos.</p>
 			</div>
 			<div id="conteudo-secundario-etapa3" class="conteudo-secundario-etapa">
 				<div class="interacao">
 					<p class="msg-interativa">Informe abaixo números sobre o seu tempo:</p>
-					<p>> Quantas horas semanais de estudos você tem disponível?</p>
+					<p>> Quantas <b>horas</b> semanais de estudos você tem disponível?</p>
 					<input id="qtd-horas-semanais" class="input-pequeno" placeholder="Ex: 30">
-					<p>> Quanto tempo (em minutos) você gostaria de alocar para
-					cada seção de estudo?</p>
+					<p>> Quanto tempo <b>(em minutos)</b> você gostaria de alocar para
+					cada sessão de estudo?</p>
 					<input id="qtd-minutos-secao" class="input-pequeno" placeholder="Ex: 30">
 				</div>
 
@@ -272,20 +267,20 @@
 
 		<div class="conteudo-resultado">
 			<div class="titulo-sub-etapa">
-				<h2>O Resultado</h2>
-				<p>Um quadro com um resumo completo incluindo, claro, a quantidade de seções calculada com base na sua individualidade.</p>
+				<h4>O Resultado</h4>
+				<p>Uma tabela que te ajudará a montar seu cronograma de estudos de uma maneira bem mais inteligente!</p>
 			</div>
 			
-			<table id="tabela-principal">
+			<!-- <table id="tabela-principal">
 			  <tr>
 			    <th>Disciplina</th>
 			    <th id="tbl-tipo">Tipo</th>
 			    <th>Peso Edital</th>
 			    <th>Peso Pessoal</th>
 			    <th>Peso Final</th>
-			    <th id="tbl-num-compart">Nº Seções Semanais</th>
+			    <th id="tbl-num-compart">Nº Sessões Semanais</th>
 			  </tr>
-			  <!-- <tr>
+			  <tr>
 			    <td>Português</td>
 			    <td>Básica</td>
 			    <td>3</td>
@@ -356,12 +351,12 @@
 			    <td>2</td>
 			    
 			  </tr>
- -->
-			</table>
 
-			
+			</table> -->
 
-			<div class="detalhes-calculo">
+			<!-- <button style="background-color: black">Ver detalhes sobre o cálculo</button> -->
+
+			<!-- <div class="detalhes-calculo">
 
 				<p>Detalhes sobre o cálculo:</p>
 
@@ -371,11 +366,11 @@
 				   <td id="td-horas-semanais"></td>
 				  </tr>
 				  <tr>
-				  	<th>Duração Seção (em minutos):</th>
+				  	<th>Duração Sessão (em minutos):</th>
 				  	<td id="td-duracao-secao"></td>
 				  </tr>
 				  <tr>
-				  	<th>Qtd. Total Compartimentos:</th>
+				  	<th>Qtd. Total Compartimentos Semanais:</th>
 				   <td id="td-total-compart"></td>
 				  </tr>
 				  <tr>
@@ -391,18 +386,24 @@
 				<p id="legenda-tabela">
 				# PesoFinal = (PesoEdital x PesoPessoal)<br>
 				# SomaTotalPesoFinal = (PesoFinal1 + PesoFinal2 + PesoFinal3 + ...)<br>
-				# Qtd.TotalCompartimentos = (((60)/DuraçãoSeção)/Qtd.HorasSemanais)<br>
-				# RelaçãoPesoFinal&amp;Compartimento = (Qtd.TotalCompartimentos/SomaTotalPesoFinal)<br>
-				# NºSeçõesSemanais = (PesoFinal x RelaçãoPesoFinal&amp;Compartimento)<br>
+				# Qtd.TotalCompartimentosSemanais = (((60)/DuraçãoSessão)/Qtd.HorasSemanais)<br>
+				# RelaçãoPesoFinal&amp;Compartimento = (Qtd.TotalCompartimentosSemanais/SomaTotalPesoFinal)<br>
+				# NºSessõesSemanais = (PesoFinal x RelaçãoPesoFinal&amp;Compartimento)<br>
 				</p>
 			
-			</div>
+			</div> -->
 
 			
 
 
-			<div id="msg-final" class="msg-interativa">Pronto! Com essa tabela, você pode montar seu quadro de horário de uma maneira mais inteligente, levando em conta a sua individualidade como pessoa e estudante.<br><br> Um exemplo: A cada semana, você deve estudar 2 seções (ou compartimentos) de Português. 
+			<div id="msg-final">
+				<p>
+				Pronto! Você agora deve montar o seu cronograma distribuindo nele o número de sessões de estudos para cada semana. Um exemplo: toda semana, você deve estudar 4 sessões (ou compartimentos) de Português, com cada sessão durando 30 minutos. Na próxima semana, a mesma coisa. Se você respeitar os números da tabela, verá que todas as sessões irão se encaixar nas suas 30 horas semanais. Para entender o cálculo a fundo, leia o <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank"> artigo</a> de Fernando Mesquita. Ele ainda dá dicas de como montar o cronograma!
+			</p>
+			<p id="msg-bons-estudos">Bons estudos! :)</p>
 			</div>
+			
+			
 		</div>
 	</main>
 
@@ -412,7 +413,7 @@
 
 
 	<footer>
-		Lógica de cálculo por <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank"> Fernando Mesquita</a> • Desenvolvido com ❤ por <a href="https://www.facebook.com/gabriel.mendes.web" target="_blank"> Gabriel</a>
+		Desenvolvido com ❤ por <a href="https://www.facebook.com/gabriel.mendes.web" target="_blank"> Gabriel</a>
 
 	</footer>
 

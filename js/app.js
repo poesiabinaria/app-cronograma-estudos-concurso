@@ -78,7 +78,7 @@ $(document).ready(function(){
 	
 	var i = 3;
 
-	$(".btn-add-disciplina").click(function(){
+	$("#btn-add-disciplina").click(function(){
 
 		var selecaoTipo = "<select class='tag-selecao-tipo' required>" +
 							  "<option value='' disabled selected>Tipo</option>" + 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 		div_InputSelectIndividual.attr("class", "individual-input_sel-discipl");
 		
 		var input_Discipl =  $(document.createElement("input"));
-		input_Discipl.attr("id", "input-" + i);
+		div_InputSelectIndividual.attr("id", "input-select-" + i);
 		input_Discipl.attr("class", "input-disciplina");
 
 		$(input_Discipl).appendTo(div_InputSelectIndividual);
@@ -99,6 +99,23 @@ $(document).ready(function(){
 		$(".todos-inputs-disciplinas").append(div_InputSelectIndividual);
 
 		i++;
+	});
+
+	$("#btn-remover").click(function(){
+
+		if(i == 3){
+			alert("Desculpe, não é possível apagar mais.")
+			return false;
+		}
+		
+		
+
+		console.log("remover" + i)
+
+		i--;
+
+		$("#input-select-" + i).remove()
+
 	});
 
 	var boxColetarPesoEscolhido;
@@ -208,9 +225,9 @@ $(document).ready(function(){
 
 			$(listaTodasDisciplinas).each(function(index, value){
 				if (this.tipo == "Básica"){
-					this.pesoEdital = pesoEditalBasicas;
+					this.pesoEdital = pesoEditalBasicas.toFixed(1);
 				} else if (this.tipo == "Específica"){
-					this.pesoEdital = pesoEditalEspec;
+					this.pesoEdital = pesoEditalEspec.toFixed(1);
 				}
 			});
 
@@ -230,9 +247,9 @@ $(document).ready(function(){
 
 			$(listaTodasDisciplinas).each(function(index, value){
 				if (this.tipo == "Básica"){
-					this.pesoEdital = pesoCalculadoBasicas;
+					this.pesoEdital = (pesoCalculadoBasicas * 100).toFixed(1);
 				} else if (this.tipo == "Específica"){
-					this.pesoEdital = pesoCalculadoEspec;
+					this.pesoEdital = (pesoCalculadoEspec * 100).toFixed(1);
 				}
 			});
 		}
@@ -286,14 +303,11 @@ $(document).ready(function(){
 
 			pesoTres = (this.pesoEdital * this.pesoPessoal);
 
-			this.pesoFinal = pesoTres;
+			this.pesoFinal = (pesoTres).toFixed(1);
 
 			somaTotalPesoTres += pesoTres;
 
-		});
-
-		somaTotalPesoTres = (somaTotalPesoTres * 100);
-
+		}); 
 	});
 
 	
@@ -306,7 +320,7 @@ $(document).ready(function(){
 		
 		var qtdCompartimento = ((60/qtdMinutosSecao)*qtdHorasSemanais);
 		
-		var equivPesoeCompart = parseFloat((qtdCompartimento/somaTotalPesoTres));
+		var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoTres * 100)) * 100);
 		
 		console.log("soma total: " + equivPesoeCompart);
 
@@ -336,10 +350,10 @@ $(document).ready(function(){
 
 			$("<td></td>").text(this.nomeDisciplina).appendTo(tr);
 			$("<td></td>").text(this.tipo).appendTo(tr);
-			$("<td></td>").text(((this.pesoEdital)*100).toFixed(1)).appendTo(tr);
+			$("<td></td>").text(this.pesoEdital).appendTo(tr);
 			$("<td></td>").text(this.pesoPessoal).appendTo(tr);
-			$("<td></td>").text(((this.pesoFinal)*100).toFixed(1)).appendTo(tr);
-			$("<td></td>").text(Math.round((this.numCompartSemanal)*100)).appendTo(tr);
+			$("<td></td>").text(this.pesoFinal).appendTo(tr);
+			$("<td></td>").text(Math.round(this.numCompartSemanal)).appendTo(tr);
 
 			console.log("loop")
 		})
@@ -348,8 +362,8 @@ $(document).ready(function(){
 		$("#td-horas-semanais").append(qtdHorasSemanais);
 		$("#td-duracao-secao").append(qtdMinutosSecao);
 		$("#td-total-compart").append(qtdCompartimento);
-		$("#td-soma-peso-final").append(Math.round(somaTotalPesoTres));
-		$("#td-relacao-peso-compart").append(equivPesoeCompart.toPrecision(1));
+		$("#td-soma-peso-final").append(somaTotalPesoTres.toFixed(1));
+		$("#td-relacao-peso-compart").append(equivPesoeCompart.toFixed(1));
 
 
 

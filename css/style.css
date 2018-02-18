@@ -57,7 +57,7 @@ header{
 	background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);
 	background: linear-gradient(to right, #00CDAC, #02AAB0);
 	box-shadow: 0 0 15px rgba(0, 0, 0, .6);
-	padding: 30px 0;
+	padding: 35px 0;
 	margin-bottom: 80px;
 }
 
@@ -71,27 +71,49 @@ h1{
 	
 }
 
-h2{
-	/*font-size: 26px;*/
+h4{
+	font-size: 22px;
 	font-weight: normal;
 	margin-top: 50px;
 }
 
-h4{
+h2{
 	color:white;
 	font-size: 14px;
 	font-weight: normal;
 	/*font-style: italic;*/
 	margin: 0;
 	
+
+	
 }
+
+p{
+
+}
+
+#versao{
+	font-size: 20px;
+}
+
+
 
 .texto-cabecalho{
+	width: 800px;
 	display: inline-block;
-	text-align: right;
+
 }
 
-#logo{ margin: 0 40px; 
+#creditos-cabecalho{
+	padding-top: 4px;
+	font-style: italic;
+	font-size: 13px;	
+}
+
+#logo{ 
+	float: right;
+
+	margin: 15px 40px 0 40px; 
 	-webkit-filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3));
 	 filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3)); 
 }
@@ -123,7 +145,7 @@ main{
 	margin: 0;
 }
 
-.titulo-sub-etapa h2{ margin-bottom: 10px; }
+.titulo-sub-etapa h4{ margin-bottom: 10px; }
 
 
 .questionamento-dificuldade p{
@@ -151,7 +173,7 @@ main{
 
 .btn-conclusao-etapa {
 	text-align: right;
-	margin-top: 70px;
+	
 }
 
 .btn-conclusao-etapa button{ background-color: #00CDAC; }
@@ -160,13 +182,18 @@ main{
 
 
 
-.botao-de-reposta{
+.botoes-sim-nao button{
 	margin-top: 0;
 	padding: 4px 10px;
 }
 
-.botao-de-reposta:first-child{
+.botoes-sim-nao button:first-child{
 	margin-left: 10px;
+	
+}
+
+.botoes-sim-nao{
+	
 }
 
 
@@ -276,12 +303,30 @@ td:first-child{
 */
 
 .detalhes-calculo{
-	margin: 50px 0;
+	/*margin: 50px 0;*/
+	color: #aaaaaa;
 }
 
-/*#msg-final{
-	clear: both;
-}*/
+#msg-final{
+	line-height: 22px;
+	margin-top: 50px;
+	
+	border-right: 8px solid #02aab0;
+	
+	text-align: justify;
+	padding: 30px;
+}
+
+
+
+#msg-final a{ color: black; }
+
+#msg-bons-estudos{
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	margin-top: 30px;
+}
 
 
 
