@@ -340,6 +340,7 @@ $(document).ready(function(){
 			$("#conteudo-secundario-resultado").fadeIn();
 
 			$("#indicacao-etp3").attr("src", "img/v-check.png");
+			$("#indicacao-resultado").attr("src", "img/flag-check.png");
 			$("#href-etp3").attr("href", "#etapa-resultado");
 
 			var disciplinaNomeEx = listaTodasDisciplinas[0].nomeDisciplina;
