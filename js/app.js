@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
-	function formatarNumero(input){ return input.replace(",", ".") }
-	function ehNumero(input){ return isNaN(Number(formatarNumero(input))) ? false : true; }
+	// INÍCIO DAS FUNÇÕES
+
+	function formatarNumero(valor){ return valor.replace(",", ".") }
+	function ehNumero(valor){ return isNaN(Number(formatarNumero(valor))) ? false : true; }
 
 	function validarInputESelect(str_nomeClasse){
 		var valido;
@@ -36,46 +38,43 @@ $(document).ready(function(){
 		return valido;
 	}
 
-	// var objTeste = {
-	// 	nome: "disciplina",
-	// 	tipo: "tipo",
-	// 	pesoedital: "pesoedital",
-	// 	pesopessoal: "pesopessoal",
-	// 	pesofinal: "pesofinal",
-	// 	secoes: "secoes"
-	// }
+	function validarEtapa1(){
 
-	// var listaTeste = [objTeste, objTeste]
+		var inputsNumericosValidos;
 
-	// console.log(listaTeste)
+		var inputESelectValidos = validarInputESelect(".individual-input_sel-discipl");
 
+		if(boxColetarPesoEscolhido){
+			inputsNumericosValidos = 
+			validarInputNumerico(".box-coletar-peso-edital .input-numerico")
+		} else { 
+			inputsNumericosValidos = 
+			validarInputNumerico(".box-calcular-peso-edital .input-numerico") 
+		}
 
-	// $("#btn-teste").click(function(){
-	// })
+		console.log("input numero validos: " + inputsNumericosValidos)
+		console.log("input e select validos: " + inputESelectValidos)
 
-	// var tabelaPrincipal = $("#tabela-teste");
+		return (inputESelectValidos && inputsNumericosValidos) ? true : false; 
+	}
+	
 
-	// $(listaTeste).each(function(index, valor){
-		
-	// 	var tr = $("<tr></tr>").appendTo(tabelaPrincipal);
+	function validarEtapa3(){
 
-	// 	$("<td></td>").text(this.nome).appendTo(tr);
-	// 	$("<td></td>").text("Text222333.").appendTo(tr);
-	// 	$("<td></td>").text("4").appendTo(tr);
+		var inputsNumericosValidos = 
+		validarInputNumerico(".box-coletar-numeros-tempo .input-numerico");
 
-	// 	console.log("loop")
-	// })
+		console.log(inputsNumericosValidos);
 
+		return inputsNumericosValidos ? true : false;
+	}
+
+	// FIM DAS FUNÇÕES
 	
 
 
-
-
-
-
-
-
 	
+
 	var i = 3;
 
 	$("#btn-add-disciplina").click(function(){
@@ -151,48 +150,10 @@ $(document).ready(function(){
 
 
 	
-	var inputsNumericosValidos;
-
+	
 	
 
-	var prosseguir = false;
-
-
-	function validarEtapa1(){
-		// console.log("coletar: " + boxColetarPesoEscolhido)
-
-		var inputESelectValidos = validarInputESelect(".individual-input_sel-discipl");
-
-		if(boxColetarPesoEscolhido){
-			inputsNumericosValidos = 
-			validarInputNumerico(".box-coletar-peso-edital .input-numerico")
-		} else { 
-			inputsNumericosValidos = 
-			validarInputNumerico(".box-calcular-peso-edital .input-numerico") 
-		}
-
-		console.log("input numero validos: " + inputsNumericosValidos)
-		console.log("input e select validos: " + inputESelectValidos)
-
-		return (inputESelectValidos && inputsNumericosValidos) ? true : false; 
-	}
-	
-
-	function validarEtapa3(){
-
-		inputsNumericosValidos = 
-		validarInputNumerico(".box-coletar-numeros-tempo .input-numerico");
-
-		console.log(inputsNumericosValidos);
-
-		return inputsNumericosValidos ? true : false;
-	}
-
-	
-
-	
-
-	// ETAPA 1 — PESO EDITAL
+	// INÍCIO ETAPA 1
 	
 
 	$("#btn-concl-etapa1").click(function(){ // Executa 
@@ -226,13 +187,11 @@ $(document).ready(function(){
 
 			// console.log(listaTodasDisciplinas);
 
-			console.log("Botao sim: " + boxColetarPesoEscolhido)
-
 			if (boxColetarPesoEscolhido){
 				var pesoEditalBasicas = parseFloat(formatarNumero($("#peso-edital-basicas").val()))
 				var pesoEditalEspec = parseFloat(formatarNumero($("#peso-edital-espec").val()));
 
-				console.log(pesoEditalBasicas)
+				// console.log(pesoEditalBasicas)
 
 				$(listaTodasDisciplinas).each(function(index, value){
 					if (this.tipo == "Básica"){
@@ -265,7 +224,7 @@ $(document).ready(function(){
 				});
 			}
 
-			console.log(listaTodasDisciplinas);
+			// console.log(listaTodasDisciplinas);
 
 
 			$(".resultado-pesos").html("Peso básicas: " + pesoIndivBasicas + "<br>" +
@@ -310,7 +269,7 @@ $(document).ready(function(){
 			pesoPessoal = parseFloat($(valor).val());
 		});
 
-		console.log(listaTodasDisciplinas);
+		// console.log(listaTodasDisciplinas);
 
 		// CALCULO E INSERÇÃO DO PESO FINAL E SUA SOMA
 		
@@ -344,15 +303,10 @@ $(document).ready(function(){
 			var qtdHorasSemanais = parseFloat($("#qtd-horas-semanais").val())
 			var qtdMinutosSecao = parseFloat($("#qtd-minutos-secao").val())
 			
-			var qtdCompartimento = ((60/qtdMinutosSecao)*qtdHorasSemanais);
+			var qtdCompartimento = Math.round((60/qtdMinutosSecao)*qtdHorasSemanais);
 			
 			var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoTres * 100)) * 100);
-			
-			console.log("soma total: " + equivPesoeCompart);
 
-			
-
-			// console.log(listaTodasDisciplinas);
 
 			$.each(listaTodasDisciplinas, function(index, valor){
 				var numCompartFinal = 0;
@@ -362,7 +316,7 @@ $(document).ready(function(){
 				this.numCompartSemanal = numCompartFinal;
 			})
 
-			console.log(listaTodasDisciplinas);
+			// console.log(listaTodasDisciplinas);
 			
 
 			// INÍCIO DO RESULTADO FINAL
@@ -382,17 +336,33 @@ $(document).ready(function(){
 				$("<td></td>").text(Math.round(this.numCompartSemanal)).appendTo(tr);
 			})
 
-			$("#td-horas-semanais").append(qtdHorasSemanais);
-			$("#td-duracao-secao").append(qtdMinutosSecao);
-			$("#td-total-compart").append(qtdCompartimento);
-			$("#td-soma-peso-final").append(somaTotalPesoTres.toFixed(1));
-			$("#td-relacao-peso-compart").append(equivPesoeCompart.toFixed(1));
-
 			$("#conteudo-secundario-etapa3").hide();
 			$("#conteudo-secundario-resultado").fadeIn();
 
-			$("#indicacao-etp3").attr("src", "img/v-check.png")
-			$("#href-etp3").attr("href", "#etapa-resultado")
+			$("#indicacao-etp3").attr("src", "img/v-check.png");
+			$("#href-etp3").attr("href", "#etapa-resultado");
+
+			var disciplinaNomeEx = listaTodasDisciplinas[0].nomeDisciplina;
+			var disciplinaSessoesEx = Math.round(listaTodasDisciplinas[0].numCompartSemanal);
+
+			$("#dscpl-nome-ex").append(disciplinaNomeEx);
+			$("#dscpl-sessoes-ex").append(disciplinaSessoesEx + " sessões");
+			$("#duracao-sessao-ex").append(qtdMinutosSecao + " minutos");
+			$("#horas-semanais-ex").append(qtdHorasSemanais + " horas");
+
+			$("#btn-ver-detalhes").click(function(){
+				
+				$("#td-horas-semanais").append(qtdHorasSemanais);
+				$("#td-duracao-secao").append(qtdMinutosSecao);
+				$("#td-total-compart").append(qtdCompartimento);
+				$("#td-soma-peso-final").append(somaTotalPesoTres.toFixed(1));
+				$("#td-relacao-peso-compart").append(equivPesoeCompart.toFixed(1));
+
+				$(".detalhes-calculo-conteudo").fadeIn();
+				$("#btn-ver-detalhes").hide();
+			})
+
+
 		} else{
 			alert("Parece que há algo errado. Por gentileza, revise essa terceira etapa.")
 		}

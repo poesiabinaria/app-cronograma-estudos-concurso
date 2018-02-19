@@ -19,7 +19,7 @@ select{ padding: 6px 0; }
 button{
 	font-family: 'Arial', sans-serif;
 	font-size: 12px;
-	background-color: #00a4d3;
+	background-color: #5B86E5;
 	color: white;
 	font-weight: bold;
 	padding: 8px 14px;
@@ -30,11 +30,11 @@ button{
 	cursor: pointer;
 }
 
-button:hover{ background-color: #32b6db; }
+button:hover{ background-color: #6b92e7; }
 
-#btn-remover, #btn-nao{ background-color: #9a72d7 }
+#btn-remover, #btn-nao{ background-color: #30BCC6 }
 #btn-remover:hover, #btn-nao:hover{
-	background-color: #a480db;
+	background-color: #59c9d1;
 }
 
 a{ color: black; font-weight: bold;}
@@ -44,9 +44,10 @@ option[value=""][disabled] { display: none; }
 option { color: black; }
 
 header{
-	background: #02AAB0;
-	background: -webkit-linear-gradient(to right, #00CDAC, #02AAB0);
-	background: linear-gradient(to right, #00CDAC, #02AAB0);
+	background: #36D1DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 	box-shadow: 0 0 15px rgba(0, 0, 0, .6);
 	padding: 35px 0;
 	margin-bottom: 80px;
@@ -91,7 +92,7 @@ h4{
 #versao{ font-size: 20px; }
 
 #creditos-cabecalho{
-	padding: 3px 6px;
+	padding: 2px 6px;
 	margin-top: 6px;
 	font-style: italic;
 	font-size: 12px;	
@@ -142,7 +143,7 @@ main{
 	padding: 10px 15px;
 	margin-left: -20px;
 	margin-top: 50px;
-	border-left: 4px solid #02aab0;
+	border-left: 4px solid #30BCC6;
 }
 
 .box-coletar-peso-edital, 
@@ -150,12 +151,13 @@ main{
 .btn-etapa1,
 #conteudo-secundario-etapa2,
 #conteudo-secundario-etapa3,
-#conteudo-secundario-resultado{ display: none; }
+#conteudo-secundario-resultado,
+.detalhes-calculo-conteudo{ display: none; }
 
 .btn-conclusao-etapa { text-align: right; }
 
-.btn-conclusao-etapa button{ background-color: #00CDAC; }
-.btn-conclusao-etapa button:hover{ background-color: #02AAB0; }
+.btn-conclusao-etapa button{ background-color: #5B86E5; }
+.btn-conclusao-etapa button:hover{ background-color: #30BCC6; }
 
 .img-etapa {width: 16px;}
 
@@ -187,44 +189,53 @@ td, th {
 }
 
 th{
-	background-color:  #00a4d3;
+	background-color: #30BCC6;
 	color: white;
 	border:1px solid white;
 }
 
-tr:nth-child(odd) { background-color: #e5f6f7; }
+tr:nth-child(odd) { background-color: #eef2fc; }
 
-#tbl-num-compart{ background-color: #9a72d7; }
+#tbl-num-compart{ background-color: #5B86E5; }
 
 /*Tabela 2*/
 
-#tabela-detalhes th, #tabela-detalhes td{
+.detalhes-calculo{ margin-top: 30px; }
+
+#btn-ver-detalhes{ padding: 6px 10px; }
+
+.detalhes-calculo-conteudo table th, .detalhes-calculo table td{
 	font-size: 14px;
 	background-color: white;
 	border: 1px solid #dddddd;
 	color: black;
 }
 
-#tabela-detalhes{ width: 48%; }
+.detalhes-calculo-conteudo table{ width: 48%; }
 
-#tabela-detalhes th{ text-align: right; }
+.detalhes-calculo-conteudo table th{ text-align: right; }
 
-#tabela-detalhes tr:nth-child(odd) { background-color: #e5f6f7; }
+.detalhes-calculo-conteudo table tr:nth-child(odd) { background-color: #e5f6f7; }
 
-#tabela-detalhes td, #tabela-detalhes th{ padding: 8px; }
+.detalhes-calculo-conteudo table td, .detalhes-calculo table th{ padding: 8px; }
+
+#legenda-tabela{ color: #aaaaaa; }
 
 /*Fim tabela 2*/
 
 
-.detalhes-calculo{ color: #aaaaaa; }
+
 
 #msg-final{
 	line-height: 22px;
-	margin-top: 50px;
-	border-right: 6px solid #02aab0;
+	margin-top: 40px;
+	border-top: 6px solid #30BCC6;
+	border-right: 6px solid #30BCC6;
 	text-align: justify;
-	padding: 5%;
+	padding: 20px;
 }
+
+#msg-final span{ font-weight: bold; }
 
 #msg-final a{ color: black; }
 
@@ -243,9 +254,9 @@ tr:nth-child(odd) { background-color: #e5f6f7; }
 
 
 footer{
-	background: #02AAB0;
-	background: -webkit-linear-gradient(to left, #00CDAC, #02AAB0);
-	background: linear-gradient(to left, #00CDAC, #02AAB0);
+	background: #36D1DC; 
+	background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC); 
+	background: linear-gradient(to right, #5B86E5, #36D1DC); 
 	margin-top: 120px;
 	padding: 8px;
 	color: white;

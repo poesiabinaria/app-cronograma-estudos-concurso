@@ -2,6 +2,8 @@
 
 	h1, h2{ margin: 8px 30px; }
 
+	#subtitulo-cabecalho{ margin: 15px 30px; }
+
 	.cbh-conteudo-principal{ text-align: center; }
 
 	.texto-cabecalho{ 
@@ -37,6 +39,8 @@
 	}
 
 	.botoes-sim-nao button:first-child{ margin-left: 0; }
+
+	.btn-conclusao-etapa{margin-top: 30px;}
 
 }
 
