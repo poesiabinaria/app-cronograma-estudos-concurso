@@ -1,12 +1,3 @@
-.individual-input_sel-discipl{
-	display: block;
-}
-
-/*.lista-questionamentos{
-	display: none;
-}*/
-
-
 body{
 	margin: 0;
 	font-family: 'Arial', sans-serif;
@@ -46,7 +37,7 @@ button:hover{ background-color: #32b6db; }
 	background-color: #a480db;
 }
 
-a{ color: white; font-weight: bold;}
+a{ color: black; font-weight: bold;}
 
 select:required:invalid { color: gray; }
 option[value=""][disabled] { display: none; }
@@ -61,14 +52,18 @@ header{
 	margin-bottom: 80px;
 }
 
-.cbh-conteudo-principal{ text-align: right; }
-
 h1{
 	font-size: 28px;
 	color: white;
 	margin: 0 0 10px 0;
 	text-shadow: 0 4px 10px rgba(0, 0, 0, .3);
-	
+}
+
+h2{
+	color:white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
 }
 
 h4{
@@ -77,50 +72,37 @@ h4{
 	margin-top: 50px;
 }
 
-h2{
-	color:white;
-	font-size: 14px;
-	font-weight: normal;
-	/*font-style: italic;*/
-	margin: 0;
-	
-
-	
-}
-
-p{
-
-}
-
-#versao{
-	font-size: 20px;
-}
 
 
-
-.texto-cabecalho{
-	width: 800px;
-	display: inline-block;
-
-}
-
-#creditos-cabecalho{
-	padding-top: 4px;
-	font-style: italic;
-	font-size: 13px;	
-}
+.cbh-conteudo-principal{ text-align: right; }
 
 #logo{ 
 	float: right;
-
 	margin: 15px 40px 0 40px; 
 	-webkit-filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3));
 	 filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .3)); 
 }
 
-/*#btn-sobre-calculo{
+.texto-cabecalho{
+	width: 800px;
 	display: inline-block;
-}*/
+}
+
+#versao{ font-size: 20px; }
+
+#creditos-cabecalho{
+	padding: 3px 6px;
+	margin-top: 6px;
+	font-style: italic;
+	font-size: 12px;	
+	background-color: white;
+	color: black;
+	border-radius: 2px;
+	display: inline-block;
+	line-height: 18px;	
+}
+	
+
 
 
 
@@ -133,10 +115,10 @@ main{
 	margin: 40px 0 50px 0;
 	border-top: 1px solid #d6d6d6;
 }
-.conteudo-etapa1 .titulo-sub-etapa:first-child{
-	border-top: none;
-}
 
+.conteudo-etapa1 .titulo-sub-etapa:first-child{ border-top: none; }
+
+.individual-input_sel-discipl{ display: block; }
 
 .titulo-sub-etapa p{
 	color: #aaaaaa;
@@ -146,7 +128,6 @@ main{
 }
 
 .titulo-sub-etapa h4{ margin-bottom: 10px; }
-
 
 .questionamento-dificuldade p{
 	text-transform: uppercase;
@@ -160,56 +141,32 @@ main{
 .msg-interativa{
 	padding: 10px 15px;
 	margin-left: -20px;
+	margin-top: 50px;
 	border-left: 4px solid #02aab0;
 }
 
-
 .box-coletar-peso-edital, 
 .box-calcular-peso-edital,
-.conteudo-etapa2-secundario,
-#btn-concl-etapa1{
-	display: none;
-}
+.btn-etapa1,
+#conteudo-secundario-etapa2,
+#conteudo-secundario-etapa3,
+#conteudo-secundario-resultado{ display: none; }
 
-.btn-conclusao-etapa {
-	text-align: right;
-	
-}
+.btn-conclusao-etapa { text-align: right; }
 
 .btn-conclusao-etapa button{ background-color: #00CDAC; }
 .btn-conclusao-etapa button:hover{ background-color: #02AAB0; }
 
-
-
+.img-etapa {width: 16px;}
 
 .botoes-sim-nao button{
 	margin-top: 0;
 	padding: 4px 10px;
 }
 
-.botoes-sim-nao button:first-child{
-	margin-left: 10px;
-	
-}
+.botoes-sim-nao button:first-child{ margin-left: 10px; }
 
-.botoes-sim-nao{
-	
-}
-
-
-
-/*.botao-de-reposta:hover{
-	color: white;
-
-	
-}
-
-.botao-de-reposta:focus{
-	background-color: #00a4d3;
-	
-}*/
-
-.interacao{ margin-bottom: 45px; }
+.box-coletar-numeros-tempo{ margin-bottom: 45px; }
 
 .observacao{
 	font-size: 14px;
@@ -218,53 +175,26 @@ main{
 	padding-bottom: 10px;
 }
 
-
-
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    /*margin: 0 auto;*/
-    
 }
-
-
 
 td, th {
-    
     text-align: center;
     padding: 14px;
-
 }
+
 th{
 	background-color:  #00a4d3;
 	color: white;
-	/*text-align: center;*/
-	/*padding: 16px;*/
 	border:1px solid white;
-
 }
 
-tr:nth-child(odd) {
-    background-color: #e5f6f7;
-}
+tr:nth-child(odd) { background-color: #e5f6f7; }
 
-td:first-child{
-	/*text-align: left;*/
-	/*font-weight: bold;
-	font-style: italic;*/
-	/*background-color: #02AAB0;
-	color: white;
-	border:1px solid white;*/
-}
-
-/*th:last-child{
-	text-transform: uppercase;
-}
-*/
-#tbl-num-compart{
-	background-color: #9a72d7;
-}
+#tbl-num-compart{ background-color: #9a72d7; }
 
 /*Tabela 2*/
 
@@ -275,49 +205,26 @@ td:first-child{
 	color: black;
 }
 
-#tabela-detalhes{
-	width: 48%;
+#tabela-detalhes{ width: 48%; }
 
-	
-}
+#tabela-detalhes th{ text-align: right; }
 
-#tabela-detalhes th{
-	text-align: right;
-}
+#tabela-detalhes tr:nth-child(odd) { background-color: #e5f6f7; }
 
-#tabela-detalhes tr:nth-child(odd) {
-    background-color: #e5f6f7;
-}
-
-#tabela-detalhes td, #tabela-detalhes th{
-	padding: 8px;
-
-}
+#tabela-detalhes td, #tabela-detalhes th{ padding: 8px; }
 
 /*Fim tabela 2*/
 
-/*#tbl-tipo{
-	color: red;
-	padding: 30px;
-}
-*/
 
-.detalhes-calculo{
-	/*margin: 50px 0;*/
-	color: #aaaaaa;
-}
+.detalhes-calculo{ color: #aaaaaa; }
 
 #msg-final{
 	line-height: 22px;
 	margin-top: 50px;
-	
-	border-right: 8px solid #02aab0;
-	
+	border-right: 6px solid #02aab0;
 	text-align: justify;
-	padding: 30px;
+	padding: 5%;
 }
-
-
 
 #msg-final a{ color: black; }
 
@@ -328,9 +235,6 @@ td:first-child{
 	margin-top: 30px;
 }
 
-
-
-
 #legenda-tabela{
 	font-size: 12px;
 	font-style: italic;
@@ -338,17 +242,16 @@ td:first-child{
 
 
 
-
-
 footer{
 	background: #02AAB0;
-		background: -webkit-linear-gradient(to left, #00CDAC, #02AAB0);
-		background: linear-gradient(to left, #00CDAC, #02AAB0);
+	background: -webkit-linear-gradient(to left, #00CDAC, #02AAB0);
+	background: linear-gradient(to left, #00CDAC, #02AAB0);
 	margin-top: 120px;
 	padding: 8px;
 	color: white;
 	font-size: 12px;
 	text-align: center;
-	/*clear: both;*/
 }
+
+footer a{ color: white;}
 
