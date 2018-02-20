@@ -43,16 +43,6 @@ select:required:invalid { color: gray; }
 option[value=""][disabled] { display: none; }
 option { color: black; }
 
-header{
-	background: #36D1DC;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	box-shadow: 0 0 15px rgba(0, 0, 0, .6);
-	padding: 35px 0;
-	margin-bottom: 80px;
-}
-
 h1{
 	font-size: 28px;
 	color: white;
@@ -73,7 +63,60 @@ h4{
 	margin-top: 50px;
 }
 
+.titulo-sub-etapa{
+	text-align: center;
+	margin: 40px 0 50px 0;
+	border-top: 1px solid #d6d6d6;
+}
 
+.titulo-sub-etapa p{
+	color: #aaaaaa;
+	font-size: 15px;
+	font-style: italic;
+	margin: 0;
+}
+
+.msg-interativa{
+	padding: 10px 15px;
+	margin-left: -20px;
+	margin-top: 50px;
+	border-left: 4px solid #30BCC6;
+}
+
+.observacao{
+	font-size: 14px;
+	font-style: italic;
+	color: grey;
+	padding-bottom: 10px;
+}
+
+.btn-conclusao-etapa { text-align: right; }
+
+.btn-conclusao-etapa button{ background-color: #5B86E5; }
+.btn-conclusao-etapa button:hover{ background-color: #30BCC6; }
+
+.img-etapa {width: 16px;}
+
+.box-coletar-peso-edital, 
+.box-calcular-peso-edital,
+.btn-etapa1,
+#conteudo-secundario-etapa2,
+#conteudo-secundario-etapa3,
+#conteudo-secundario-resultado,
+.detalhes-calculo-conteudo{ display: none; }
+
+
+
+/*INÍCIO CABEÇALHO*/
+
+header{
+	background: #36D1DC; 
+	background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);  
+	background: linear-gradient(to left, #5B86E5, #36D1DC);
+	box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+	padding: 35px 0;
+	margin-bottom: 80px;
+}
 
 .cbh-conteudo-principal{ text-align: right; }
 
@@ -103,30 +146,15 @@ h4{
 	line-height: 18px;	
 }
 	
+/*FIM - Cabeçalho*/
 
 
 
-
-main{
-	padding: 0 11%;
-}
-
-.titulo-sub-etapa{
-	text-align: center;
-	margin: 40px 0 50px 0;
-	border-top: 1px solid #d6d6d6;
-}
+main{ padding: 0 11%; }
 
 .conteudo-etapa1 .titulo-sub-etapa:first-child{ border-top: none; }
 
 .individual-input_sel-discipl{ display: block; }
-
-.titulo-sub-etapa p{
-	color: #aaaaaa;
-	font-size: 15px;
-	font-style: italic;
-	margin: 0;
-}
 
 .titulo-sub-etapa h4{ margin-bottom: 10px; }
 
@@ -139,28 +167,6 @@ main{
 
 .lista-questionamentos select{ margin-left: 30px; }
 
-.msg-interativa{
-	padding: 10px 15px;
-	margin-left: -20px;
-	margin-top: 50px;
-	border-left: 4px solid #30BCC6;
-}
-
-.box-coletar-peso-edital, 
-.box-calcular-peso-edital,
-.btn-etapa1,
-#conteudo-secundario-etapa2,
-#conteudo-secundario-etapa3,
-#conteudo-secundario-resultado,
-.detalhes-calculo-conteudo{ display: none; }
-
-.btn-conclusao-etapa { text-align: right; }
-
-.btn-conclusao-etapa button{ background-color: #5B86E5; }
-.btn-conclusao-etapa button:hover{ background-color: #30BCC6; }
-
-.img-etapa {width: 16px;}
-
 .botoes-sim-nao button{
 	margin-top: 0;
 	padding: 4px 10px;
@@ -170,12 +176,9 @@ main{
 
 .box-coletar-numeros-tempo{ margin-bottom: 45px; }
 
-.observacao{
-	font-size: 14px;
-	font-style: italic;
-	color: grey;
-	padding-bottom: 10px;
-}
+
+
+/*INÍCIO - Etapa Resultado*/
 
 table {
     font-family: arial, sans-serif;
@@ -223,9 +226,6 @@ tr:nth-child(odd) { background-color: #eef2fc; }
 
 /*Fim tabela 2*/
 
-
-
-
 #msg-final{
 	line-height: 22px;
 	margin-top: 40px;
@@ -250,6 +250,8 @@ tr:nth-child(odd) { background-color: #eef2fc; }
 	font-size: 12px;
 	font-style: italic;
 }
+
+/*FIM - Etapa Resultado*/
 
 
 

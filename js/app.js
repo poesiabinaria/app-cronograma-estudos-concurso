@@ -73,7 +73,6 @@ $(document).ready(function(){
 	
 
 
-	
 
 	var i = 3;
 
@@ -98,6 +97,7 @@ $(document).ready(function(){
 		$(".todos-inputs-disciplinas").append(div_InputSelectIndividual);
 
 		i++;
+
 	});
 
 	$("#btn-remover").click(function(){
@@ -136,41 +136,30 @@ $(document).ready(function(){
 		boxColetarPesoEscolhido = false;
 	})
 
-	// Fim
 
 
 	var listaDisciplinasBasicas = [];
 	var listaDisciplinasEspec = [];
 	var listaTodasDisciplinas = [];
 
-	var pesoIndivBasicas;
-	var pesoIndivEspec;
-
 	var somaTotalPesoTres = 0;
 
 
 	
 	
+	// INÍCIO - ETAPA 1
 	
-
-	// INÍCIO ETAPA 1
-	
-
 	$("#btn-concl-etapa1").click(function(){ // Executa 
 
 		prosseguir = validarEtapa1();
 
 		if (prosseguir){
-			
-			console.log("vai prosseguir")
 
 			$(".individual-input_sel-discipl").each(function(){ 
 				var disciplinas = {};
 				var nomeDisciplina = $(this).find(':input').val();
 				var tipoDisciplina = $(this).find('select').val();
 				var haElementoVazio = false;
-
-				console.log(tipoDisciplina);
 
 				disciplinas.nomeDisciplina = nomeDisciplina;
 
@@ -226,11 +215,6 @@ $(document).ready(function(){
 
 			// console.log(listaTodasDisciplinas);
 
-
-			$(".resultado-pesos").html("Peso básicas: " + pesoIndivBasicas + "<br>" +
-				"Peso Específicas: " + pesoIndivEspec
-				);	
-
 			var selecaoDificuldade = "<select class='tag-selecao'>" +
 				  "<option value='1'>1 - Baixa</option>" +
 				  "<option value='1.5'>1,5</option>" +
@@ -251,15 +235,13 @@ $(document).ready(function(){
 			$("#href-etp1").attr("href", "#etapa2")
 		
 		}else { alert("Parece que há algo errado. Por gentileza, revise essa primeira etapa.") }
-
-		
-
-	}); // FIM ETAPA 1
+	
+	}); // FIM - ETAPA 1
 
 	
 		
 
-	// ETAPA 2 — PESO PESSOAL
+	// INÍCIO - ETAPA 2
 
 	$("#btn-concl-etapa2").click(function(){
 
@@ -289,11 +271,11 @@ $(document).ready(function(){
 
 		$("#indicacao-etp2").attr("src", "img/v-check.png")
 		$("#href-etp2").attr("href", "#etapa3")
-	});
+	}); // FIM - ETAPA 2
 
 	
 
-	// ETAPA 3 — MONTAGEM DO QUADRO
+	// INÍCIO - ETAPA 3 
 
 	$("#btn-mostrar-resultado").click(function(){
 
@@ -307,7 +289,6 @@ $(document).ready(function(){
 			
 			var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoTres * 100)) * 100);
 
-
 			$.each(listaTodasDisciplinas, function(index, valor){
 				var numCompartFinal = 0;
 
@@ -315,12 +296,10 @@ $(document).ready(function(){
 
 				this.numCompartSemanal = numCompartFinal;
 			})
-
-			// console.log(listaTodasDisciplinas);
 			
 
+			
 			// INÍCIO DO RESULTADO FINAL
-
 
 			var tabelaPrincipal = $("#tabela-principal");
 
@@ -363,11 +342,10 @@ $(document).ready(function(){
 				$("#btn-ver-detalhes").hide();
 			})
 
-
 		} else{
 			alert("Parece que há algo errado. Por gentileza, revise essa terceira etapa.")
 		}
 
-	}) // FIM ETAPA 3
+	}) // FIM - ETAPA 3
 });
 
