@@ -154,6 +154,10 @@ main{ padding: 0 11%; }
 
 .conteudo-etapa1 .titulo-sub-etapa:first-child{ border-top: none; }
 
+.conteudo-secundario-etapa{ margin-bottom: 80px; }
+
+.img-reticencias{margin-top: 20px;}
+
 .individual-input_sel-discipl{ display: block; }
 
 .titulo-sub-etapa h4{ margin-bottom: 10px; }

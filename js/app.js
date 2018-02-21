@@ -184,9 +184,9 @@ $(document).ready(function(){
 
 				$(listaTodasDisciplinas).each(function(index, value){
 					if (this.tipo == "Básica"){
-						this.pesoEdital = pesoEditalBasicas.toFixed(1);
+						this.pesoEdital = Math.abs(pesoEditalBasicas.toFixed(1));
 					} else if (this.tipo == "Específica"){
-						this.pesoEdital = pesoEditalEspec.toFixed(1);
+						this.pesoEdital = Math.abs(pesoEditalEspec.toFixed(1));
 					}
 				});
 
@@ -201,8 +201,8 @@ $(document).ready(function(){
 				var proporcaoBasicas = (qtdQuestBasicas/qtdQuestTotal);
 				var proporcaoEspec = (qtdQuestEspec/qtdQuestTotal);
 
-				pesoCalculadoBasicas = (proporcaoBasicas/qtdDisciplinasBasicas);
-				pesoCalculadoEspec = (proporcaoEspec/qtdDisciplinasEspec);
+				pesoCalculadoBasicas = Math.abs(proporcaoBasicas/qtdDisciplinasBasicas);
+				pesoCalculadoEspec = Math.abs(proporcaoEspec/qtdDisciplinasEspec);
 
 				$(listaTodasDisciplinas).each(function(index, value){
 					if (this.tipo == "Básica"){
@@ -232,6 +232,7 @@ $(document).ready(function(){
 			$("#conteudo-secundario-etapa2").fadeIn();
 
 			$("#indicacao-etp1").attr("src", "img/v-check.png")
+			$("#reticencias-etp-2").hide();
 			$("#href-etp1").attr("href", "#etapa2")
 		
 		}else { alert("Parece que há algo errado. Por gentileza, revise essa primeira etapa.") }
@@ -270,6 +271,7 @@ $(document).ready(function(){
 		$("#conteudo-secundario-etapa3").fadeIn();
 
 		$("#indicacao-etp2").attr("src", "img/v-check.png")
+		$("#reticencias-etp-3").hide();
 		$("#href-etp2").attr("href", "#etapa3")
 	}); // FIM - ETAPA 2
 
@@ -282,8 +284,8 @@ $(document).ready(function(){
 		var prosseguir = validarEtapa3();
 
 		if (prosseguir){
-			var qtdHorasSemanais = parseFloat($("#qtd-horas-semanais").val())
-			var qtdMinutosSecao = parseFloat($("#qtd-minutos-secao").val())
+			var qtdHorasSemanais = parseFloat(Math.abs($("#qtd-horas-semanais").val()));
+			var qtdMinutosSecao = parseFloat(Math.abs($("#qtd-minutos-secao").val()));
 			
 			var qtdCompartimento = Math.round((60/qtdMinutosSecao)*qtdHorasSemanais);
 			
@@ -320,6 +322,7 @@ $(document).ready(function(){
 
 			$("#indicacao-etp3").attr("src", "img/v-check.png");
 			$("#indicacao-resultado").attr("src", "img/flag-check.png");
+			$("#reticencias-etp-resultado").hide();
 			$("#href-etp3").attr("href", "#etapa-resultado");
 
 			var disciplinaNomeEx = listaTodasDisciplinas[0].nomeDisciplina;
@@ -347,5 +350,50 @@ $(document).ready(function(){
 		}
 
 	}) // FIM - ETAPA 3
+
+
+	$("#btn-teste").click(function(){
+
+		$("table th").css("background-color", "white");
+		$("#tabela-principal th").css("color", "black");
+
+		html2canvas($('#tabela-principal-pdf'), 
+		{
+		  onrendered: function (canvas) {
+		    var a = document.createElement('a');
+		    // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+		    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+		    a.download = 'somefilename.jpg';
+		    a.click();
+		  }
+		});
+
+		// html2canvas(document.querySelector("#tabela-principal-pdf")).then(canvas => {
+		//     document.body.appendChild(canvas)
+		// });
+
+
+		// var doc = new jsPDF({
+		// 	orientation: 'landscape'
+		// });
+
+		// var specialElementHandlers = {
+		// 	'#editor': function(element, renderer){
+		// 		return true;
+		// 	},
+		// 	'.controls': function(element, renderer){
+		// 		return true;
+		// 	}
+		// };
+
+		// // All units are in the set measurement for the document
+		// // This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+		// doc.fromHTML($('#tabela-principal-pdf').get(0), 15, 15, {
+		// 	'width': 170, 
+		// 	'elementHandlers': specialElementHandlers
+		// });
+
+		// doc.save('a4.pdf')
+	});
 });
 
