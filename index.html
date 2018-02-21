@@ -34,7 +34,7 @@
 						<img id="indicacao-etp1" class="img-etapa" src="img/v-uncheck.png">
 					</span>
 				</h4>
-				<p>Nessa primeira etapa, serão coletados o nome de cada disciplina, seu tipo (básica ou específica) e seu peso oficial.</p>
+				<p>Nessa primeira etapa, serão coletados o nome das disciplinas, seu tipo (básica ou específica) e seu peso oficial.</p>
 			</div> <!-- Fim do título e subtítulo da etapa 1 -->
 
 			<!-- Início do conteúdo secundário da etapa 1 -->
@@ -159,6 +159,8 @@
 					<p>> Quanto tempo <b>(em minutos)</b> você gostaria de alocar para
 					cada sessão de estudo?</p>
 					<input id="qtd-minutos-secao" class="input-pequeno input-numerico" placeholder="Ex: 30">
+					<p>> E o intervalo <b>(em minutos)</b> de descanso entre as sessões de estudo, será de quanto tempo?</p>
+					<input id="qtd-minutos-intervalo" class="input-pequeno input-numerico" placeholder="Ex: 10">
 				</div>
 
 				<div class="btn-conclusao-etapa">
@@ -215,6 +217,10 @@
 						  	<td id="td-duracao-secao"></td>
 						  </tr>
 						  <tr>
+						  	<th>Duração Intervalo (em minutos):</th>
+						  	<td id="td-duracao-intervalo"></td>
+						  </tr>
+						  <tr>
 						  	<th>Qtd. Total Compartimentos Semanais:</th>
 						   <td id="td-total-compart"></td>
 						  </tr>
@@ -231,7 +237,7 @@
 						<p id="legenda-tabela">
 						# PesoFinal = (PesoEdital x PesoPessoal)<br>
 						# SomaTotalPesoFinal = (PesoFinal1 + PesoFinal2 + PesoFinal3 + ...)<br>
-						# Qtd.TotalCompartimentosSemanais = (((60)/DuraçãoSessão)/Qtd.HorasSemanais)<br>
+						# Qtd.TotalCompartimentosSemanais = (((60)/(DuraçãoSessão + DuraçãoIntervalo))/Qtd.HorasSemanais)<br>
 						# RelaçãoPesoFinal&amp;Compartimento = (Qtd.TotalCompartimentosSemanais/SomaTotalPesoFinal)<br>
 						# NºSessõesSemanais = (PesoFinal x RelaçãoPesoFinal&amp;Compartimento)<br>
 						</p>
@@ -240,7 +246,7 @@
 
 				<div id="msg-final">
 					<p>
-					Pronto! Você agora deve montar o seu cronograma distribuindo o número de sessões de estudos para cada semana. Um exemplo: toda semana, você deve estudar <span id="dscpl-sessoes-ex"></span> (ou compartimentos) da sua disciplina <span id="dscpl-nome-ex"></span>, com cada sessão durando <span id="duracao-sessao-ex"></span>. Na próxima semana, a mesma coisa. Se você respeitar os números da tabela, verá que todas as sessões irão se encaixar nas suas <span id="horas-semanais-ex"></span> semanais. Sinta-se livre para fazer adaptações caso elas sejam necessárias. Para entender o cálculo a fundo, leia o <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank"> artigo</a> de Fernando Mesquita. Ele ainda dá dicas de como montar o cronograma!
+					Pronto! Você agora deve montar o seu cronograma distribuindo o número de sessões de estudos para cada semana. Um exemplo: toda semana, você deve estudar <span id="dscpl-sessoes-ex"></span> (ou compartimentos) da sua disciplina <span id="dscpl-nome-ex"></span>, com cada sessão durando <span id="duracao-sessao-ex"></span> e tendo <span id="intervalo-descanso-ex"></span> de intervalo de descanso entre uma sessão e outra. Na próxima semana, a mesma coisa. Se você respeitar os números da tabela, verá que todas as sessões irão se encaixar nas suas <span id="horas-semanais-ex"></span> semanais. Sinta-se livre para fazer adaptações caso elas sejam necessárias. Para entender o cálculo a fundo, leia o <a href="http://blogdofernandomesquita.com.br/compartimento-de-compromissos" target="_blank"> artigo</a> de Fernando Mesquita. Ele ainda dá dicas de como montar o cronograma!
 				</p>
 				<p id="msg-bons-estudos">Bons estudos! :)</p>
 				</div>

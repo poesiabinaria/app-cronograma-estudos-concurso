@@ -286,8 +286,9 @@ $(document).ready(function(){
 		if (prosseguir){
 			var qtdHorasSemanais = parseFloat(Math.abs($("#qtd-horas-semanais").val()));
 			var qtdMinutosSecao = parseFloat(Math.abs($("#qtd-minutos-secao").val()));
+			var qtdMinutosIntervalo = parseFloat(Math.abs($("#qtd-minutos-intervalo").val()));
 			
-			var qtdCompartimento = Math.round((60/qtdMinutosSecao)*qtdHorasSemanais);
+			var qtdCompartimento = Math.round((60/(qtdMinutosSecao + qtdMinutosIntervalo))*qtdHorasSemanais);
 			
 			var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoTres * 100)) * 100);
 
@@ -331,12 +332,14 @@ $(document).ready(function(){
 			$("#dscpl-nome-ex").append(disciplinaNomeEx);
 			$("#dscpl-sessoes-ex").append(disciplinaSessoesEx + " sessões");
 			$("#duracao-sessao-ex").append(qtdMinutosSecao + " minutos");
+			$("#intervalo-descanso-ex").append(qtdMinutosIntervalo + " minutos");
 			$("#horas-semanais-ex").append(qtdHorasSemanais + " horas");
 
 			$("#btn-ver-detalhes").click(function(){
 				
 				$("#td-horas-semanais").append(qtdHorasSemanais);
 				$("#td-duracao-secao").append(qtdMinutosSecao);
+				$("#td-duracao-intervalo").append(qtdMinutosIntervalo);
 				$("#td-total-compart").append(qtdCompartimento);
 				$("#td-soma-peso-final").append(somaTotalPesoTres.toFixed(1));
 				$("#td-relacao-peso-compart").append(equivPesoeCompart.toFixed(1));
@@ -350,50 +353,5 @@ $(document).ready(function(){
 		}
 
 	}) // FIM - ETAPA 3
-
-
-	$("#btn-teste").click(function(){
-
-		$("table th").css("background-color", "white");
-		$("#tabela-principal th").css("color", "black");
-
-		html2canvas($('#tabela-principal-pdf'), 
-		{
-		  onrendered: function (canvas) {
-		    var a = document.createElement('a');
-		    // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
-		    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-		    a.download = 'somefilename.jpg';
-		    a.click();
-		  }
-		});
-
-		// html2canvas(document.querySelector("#tabela-principal-pdf")).then(canvas => {
-		//     document.body.appendChild(canvas)
-		// });
-
-
-		// var doc = new jsPDF({
-		// 	orientation: 'landscape'
-		// });
-
-		// var specialElementHandlers = {
-		// 	'#editor': function(element, renderer){
-		// 		return true;
-		// 	},
-		// 	'.controls': function(element, renderer){
-		// 		return true;
-		// 	}
-		// };
-
-		// // All units are in the set measurement for the document
-		// // This can be changed to "pt" (points), "mm" (Default), "cm", "in"
-		// doc.fromHTML($('#tabela-principal-pdf').get(0), 15, 15, {
-		// 	'width': 170, 
-		// 	'elementHandlers': specialElementHandlers
-		// });
-
-		// doc.save('a4.pdf')
-	});
 });
 
