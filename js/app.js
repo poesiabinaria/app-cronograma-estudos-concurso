@@ -142,7 +142,7 @@ $(document).ready(function(){
 	var listaDisciplinasEspec = [];
 	var listaTodasDisciplinas = [];
 
-	var somaTotalPesoTres = 0;
+	var somaTotalPesoFinal = 0;
 
 
 	
@@ -159,7 +159,6 @@ $(document).ready(function(){
 				var disciplinas = {};
 				var nomeDisciplina = $(this).find(':input').val();
 				var tipoDisciplina = $(this).find('select').val();
-				var haElementoVazio = false;
 
 				disciplinas.nomeDisciplina = nomeDisciplina;
 
@@ -216,11 +215,11 @@ $(document).ready(function(){
 			// console.log(listaTodasDisciplinas);
 
 			var selecaoDificuldade = "<select class='tag-selecao'>" +
-				  "<option value='1'>1 - Baixa</option>" +
-				  "<option value='1.5'>1,5</option>" +
-				  "<option value='2'>2 - Média</option>" +
-				  "<option value='2.5'>2,5</option>" +
-				  "<option value='3'>3 - Alta</option>" +
+				  "<option value='1'>1 - Muito Baixo</option>" +
+				  "<option value='1.5'>1,5 - Baixo</option>" +
+				  "<option value='2'>2 - Médio</option>" +
+				  "<option value='2.5'>2,5 - Alto</option>" +
+				  "<option value='3'>3 - Muito Alto</option>" +
 				"</select>";
 			
 			$.each(listaTodasDisciplinas, function(index, valor){
@@ -235,7 +234,7 @@ $(document).ready(function(){
 			$("#reticencias-etp-2").hide();
 			$("#href-etp1").attr("href", "#etapa2")
 		
-		}else { alert("Parece que há algo errado. Por gentileza, revise essa primeira etapa.") }
+		}else { alert("Parece que há algo errado e/ou incompleto. Por gentileza, revise essa primeira etapa.") }
 	
 	}); // FIM - ETAPA 1
 
@@ -258,13 +257,13 @@ $(document).ready(function(){
 		
 		$.each(listaTodasDisciplinas, function(index, valor){
 			
-			var pesoTres = 0;
+			var pesoFinal = 0;
 
-			pesoTres = (this.pesoEdital * this.pesoPessoal);
+			pesoFinal = (this.pesoEdital * this.pesoPessoal);
 
-			this.pesoFinal = (pesoTres).toFixed(1);
+			this.pesoFinal = (pesoFinal).toFixed(1);
 
-			somaTotalPesoTres += pesoTres;
+			somaTotalPesoFinal += pesoFinal;
 		}); 
 
 		$("#conteudo-secundario-etapa2").hide();
@@ -290,7 +289,7 @@ $(document).ready(function(){
 			
 			var qtdCompartimento = Math.round((60/(qtdMinutosSecao + qtdMinutosIntervalo))*qtdHorasSemanais);
 			
-			var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoTres * 100)) * 100);
+			var equivPesoeCompart = parseFloat((qtdCompartimento/(somaTotalPesoFinal * 100)) * 100);
 
 			$.each(listaTodasDisciplinas, function(index, valor){
 				var numCompartFinal = 0;
@@ -341,7 +340,7 @@ $(document).ready(function(){
 				$("#td-duracao-secao").append(qtdMinutosSecao);
 				$("#td-duracao-intervalo").append(qtdMinutosIntervalo);
 				$("#td-total-compart").append(qtdCompartimento);
-				$("#td-soma-peso-final").append(somaTotalPesoTres.toFixed(1));
+				$("#td-soma-peso-final").append(somaTotalPesoFinal.toFixed(1));
 				$("#td-relacao-peso-compart").append(equivPesoeCompart.toFixed(1));
 
 				$(".detalhes-calculo-conteudo").fadeIn();
@@ -349,7 +348,7 @@ $(document).ready(function(){
 			})
 
 		} else{
-			alert("Parece que há algo errado. Por gentileza, revise essa terceira etapa.")
+			alert("Parece que há algo errado e/ou incompleto. Por gentileza, revise essa terceira etapa.")
 		}
 
 	}) // FIM - ETAPA 3
